@@ -1,0 +1,11 @@
+%函数模块
+function y = f(t)
+a = 270 ./ 59000000;lambda = 3;
+y = 1 ./ (1 + (1 ./ a - 1) * exp(1) .^ (-lambda * t));
+x = [0:0.001:10];
+y = f(x);
+plot(x,y);
+title('SI模型下病人人数随时间变化趋势图');
+xlabel('时间/天');ylabel('病人所占比例');
+h = legend('$i(t)=\frac{{1}}{{1+(\frac{{1}}{{t0}}-1)*e^{-\lambda t}}}$');
+set(h,'Interpreter','latex');
